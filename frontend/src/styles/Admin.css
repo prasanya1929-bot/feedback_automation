@@ -776,3 +776,291 @@
 .adm-status-badge[data-status="In Progress"] { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
 .adm-status-badge[data-status="Resolved"]    { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 .adm-status-badge[data-status="Rejected"]    { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* ================================================================
+   AI Summary + Modal additions
+   Prefix: adm-ai-  adm-modal-  adm-overall-
+   ================================================================ */
+
+/* --- AI Summary block inside question card --- */
+.adm-ai-summary {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #334155;
+  background: #f8fafc;
+  border-left: 3px solid #1a6fd4;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 14px;
+  margin-bottom: 4px;
+}
+
+.adm-ai-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1a6fd4;
+  margin-bottom: 6px;
+}
+
+/* --- View Responses button --- */
+.adm-view-responses-btn {
+  margin-top: 10px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a6fd4;
+  background: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.adm-view-responses-btn:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+/* --- Overall Feedback card --- */
+.adm-overall-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.adm-overall-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.adm-overall-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  color: #16a34a;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.adm-overall-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.adm-view-all-btn {
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.adm-view-all-btn:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+/* --- Modal backdrop --- */
+.adm-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- Modal box --- */
+.adm-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  width: 100%;
+  max-width: 580px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.adm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  flex-shrink: 0;
+}
+
+.adm-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.adm-modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.adm-modal-close:hover {
+  background: #e2e8f0;
+}
+
+.adm-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Modal section --- */
+.adm-modal-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin: 0 0 10px;
+}
+
+/* --- Response breakdown in modal --- */
+.adm-modal-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adm-modal-breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #334155;
+  padding: 6px 0;
+  border-bottom: 1px dashed #f1f5f9;
+}
+
+.adm-modal-breakdown-row:last-child {
+  border-bottom: none;
+}
+
+.adm-modal-breakdown-answer {
+  flex: 1;
+  padding-right: 12px;
+  font-weight: 500;
+}
+
+.adm-modal-breakdown-count {
+  font-weight: 700;
+  color: #1a6fd4;
+  white-space: nowrap;
+}
+
+/* --- Others list in modal --- */
+.adm-modal-others-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adm-modal-other-item {
+  font-size: 13px;
+  color: #475569;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid #e2e8f0;
+  line-height: 1.5;
+}
+
+.adm-modal-other-item::before {
+  content: '• ';
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+/* --- Overall comments list in modal --- */
+.adm-modal-comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adm-modal-comment-item {
+  font-size: 13px;
+  color: #475569;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid #bbf7d0;
+  line-height: 1.5;
+}
+
+.adm-modal-comment-item::before {
+  content: '• ';
+  color: #16a34a;
+  font-weight: 700;
+}
+
+/* --- Empty state in modal --- */
+.adm-modal-empty {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Divider inside modal */
+.adm-modal-divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 0;
+}
+
+/* Loading state in modal */
+.adm-modal-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 0;
+  font-size: 13px;
+  color: #64748b;
+}

@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { verifyToken } from '../middleware/authMiddleware.js'
-import { getFaculties, getFeedbackAnalytics } from '../controllers/adminController.js'
+import { getFaculties, getFeedbackAnalytics, getResponses } from '../controllers/adminController.js'
 import statusRoutes from './statusRoutes.js'
 
 const router = Router()
@@ -19,6 +19,9 @@ router.get('/faculties', getFaculties)
 
 // GET /admin/analytics?year=&branch=&section=&subject=&faculty=
 router.get('/analytics', getFeedbackAnalytics)
+
+// GET /admin/responses?year=&branch=&section=&subject=&faculty=
+router.get('/responses', getResponses)
 
 // GET /admin/status   POST /admin/status
 router.use('/status', statusRoutes)
