@@ -18,6 +18,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Create Env Files
+        shell: bash
+        run: |
+          touch backend/.env
+          touch frontend/.env
+          echo "PORT=${{ secrets.PORT }}" >> backend/.env
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> backend/.env
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> backend/.env
+          echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> backend/.env
+          echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> backend/.env
+          echo "FRONTEND_URL=${{ secrets.FRONTEND_URL }}" >> backend/.env
+          echo "SESSION_SECRET=${{ secrets.SESSION_SECRET }}" >> backend/.env
+          echo "GOOGLE_CALLBACK_URL=${{ secrets.GOOGLE_CALLBACK_URL }}" >> backend/.env
+          echo "VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }}" >> frontend/.env
+
       - name: Deploy using Docker Compose
         run: |
           docker compose -f docker-compose.yml down
@@ -39,6 +54,21 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Create Env Files
+        shell: bash
+        run: |
+          touch backend/.env
+          touch frontend/.env
+          echo "PORT=${{ secrets.PORT }}" >> backend/.env
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> backend/.env
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> backend/.env
+          echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> backend/.env
+          echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> backend/.env
+          echo "FRONTEND_URL=${{ secrets.FRONTEND_URL }}" >> backend/.env
+          echo "SESSION_SECRET=${{ secrets.SESSION_SECRET }}" >> backend/.env
+          echo "GOOGLE_CALLBACK_URL=${{ secrets.GOOGLE_CALLBACK_URL }}" >> backend/.env
+          echo "VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }}" >> frontend/.env
 
       - name: Deploy using Docker Compose
         run: |
