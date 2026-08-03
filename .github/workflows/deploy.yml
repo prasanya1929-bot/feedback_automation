@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy-dev:
+    name: Deploy to Development
+    if: github.ref == 'refs/heads/dev'
+    runs-on: [self-hosted, dev-ai]
+    environment:
+      name: feedback-development
+      url: https://dev-feedback.vjstartup.com
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy using Docker Compose
+        run: |
+          docker compose -f docker-compose.yml down
+          docker compose -f docker-compose.yml up -d --build
+
+      - name: Trigger / Verify Dev URL
+        run: |
+          echo "Waiting for services to start..."
+          sleep 10
+          echo "Testing dev URL..."
+          curl -sI https://dev-feedback.vjstartup.com | head -n 1
+
+  deploy-prod:
+    name: Deploy to Production
+    if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, gamma]
+    environment:
+      name: feedback-production
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy using Docker Compose
+        run: |
+          docker compose -f docker-compose.yml down
+          docker compose -f docker-compose.yml up -d --build
