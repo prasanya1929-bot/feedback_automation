@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/StatusTracking.css'
 
-const API = 'http://localhost:5000'
+const API = import.meta.env.VITE_BACKEND_URL
 
 // ── Status badge colours ───────────────────────────────────
 const STATUS_STYLES = {

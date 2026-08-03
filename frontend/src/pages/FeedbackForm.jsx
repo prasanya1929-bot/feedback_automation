@@ -192,7 +192,7 @@ export default function FeedbackForm() {
       }
 
       const response = await fetch(
-        'http://localhost:5000/feedback/submit',
+        `${import.meta.env.VITE_BACKEND_URL}/feedback/submit`,
         {
           method: 'POST',
           headers: {

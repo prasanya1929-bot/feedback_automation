@@ -36,7 +36,7 @@ export default function Dashboard() {
     }
 
     const response = await fetch(
-      `http://localhost:5000/feedback/check?studentEmail=${decoded.email}&subject=${encodeURIComponent(subject)}`
+      `${import.meta.env.VITE_BACKEND_URL}/feedback/check?studentEmail=${decoded.email}&subject=${encodeURIComponent(subject)}`
     )
 
     const data = await response.json()
@@ -87,7 +87,7 @@ export default function Dashboard() {
     const fetchSubmittedSubjects = async (email) => {
       try {
         const response = await fetch(
-          `http://localhost:5000/feedback/submitted-subjects?studentEmail=${encodeURIComponent(email)}`
+          `${import.meta.env.VITE_BACKEND_URL}/feedback/submitted-subjects?studentEmail=${encodeURIComponent(email)}`
         )
 
         const data = await response.json()
@@ -101,7 +101,7 @@ export default function Dashboard() {
       try {
         const token = localStorage.getItem('token')
         const response = await fetch(
-          `http://localhost:5000/feedback/subjects/${encodeURIComponent(rollNumber)}`,
+          `${import.meta.env.VITE_BACKEND_URL}/feedback/subjects/${encodeURIComponent(rollNumber)}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

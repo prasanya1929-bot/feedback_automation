@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import '../styles/Admin.css'
 
-const API = 'http://localhost:5000'
+const API = import.meta.env.VITE_BACKEND_URL
 
 const YEAR_OPTIONS    = [1, 2, 3, 4]
 const BRANCH_OPTIONS  = ['AIML', 'IOT']

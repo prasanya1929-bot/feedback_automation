@@ -96,7 +96,7 @@ export default function Login() {
           </div>
 
           <a
-            href="http://localhost:5000/auth/google"
+            href={`${import.meta.env.VITE_BACKEND_URL}/auth/google`}
             className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]"
           >
             <GoogleIcon />
